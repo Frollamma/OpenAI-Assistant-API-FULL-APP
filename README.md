@@ -31,8 +31,10 @@ streamlit run app.py
 # Wanted features
 
 - Add the possibility to use vanilla ChatGPT
-- Add sidebar and chat history
+- Add command line arguments
 - Find something better than a folder named "functions"?
 - Find a way to avoid name conflicts with file `functions/main.py` (they are very very unlucky, but possible)
+- Add sidebar and chat history
+- Add possibility to select different assistants
 - Add support for more models available through API, like Gemini
 - Add support for open source LLMs
