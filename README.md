@@ -27,3 +27,11 @@ ASST_ID = "YOUR_ASSISTANT_ID"
 ```
 streamlit run app.py
 ```
+
+# Roadmap
+
+- Add the possibility to use vanilla ChatGPT
+- Find something better than a folder named "functions"?
+- Find a way to avoid name conflicts with file `functions/main.py` (they are very very unlucky, but possible)
+- Add support for more models available through API, like Gemini
+- Add support for open source LLMs
