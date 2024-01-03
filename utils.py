@@ -7,8 +7,8 @@ DELAY = 0.1
 
 def call_function(function_name: str, arguments):
     if function_name in globals() and callable(globals()[function_name]):
-        function = globals()[function_name]
-        return function(**arguments)
+        function_to_call = globals()[function_name]
+        return function_to_call(**arguments)
     else:
         raise ValueError(f"Function '{function_name}' does not exist")
 
