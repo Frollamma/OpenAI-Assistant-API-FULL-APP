@@ -14,7 +14,7 @@ This repo is a template repository, it means that you can create a new repositor
 gh repo create Your-Repo-Name --public --template Frollamma/OpenAI-Assistant-API-UI
 ```
 
-and to clone it you cn use the following command
+and to clone it you can use the following command
 
 ```sh
 gh repo clone Your-Repo-Name
