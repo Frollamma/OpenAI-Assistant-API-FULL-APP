@@ -29,12 +29,12 @@ with st.form("Files form", clear_on_submit=True):
     submitted = st.form_submit_button("Attach")
 
     if submitted:
-        st.write("Files attached! Type the next message!")
+        st.write("Files attached to next message! Type something!")
 
 prompt = st.chat_input("Write your message here...")
 
 if prompt:
-    file_ids = []
+    OpenAI_files = []
     if uploaded_files:
         OpenAI_files = upload_files(client, uploaded_files)
 
