@@ -1,7 +1,12 @@
 from openai import OpenAI
 import time
 import json
-from functions.main import *
+from streamlit.runtime.uploaded_file_manager import UploadedFile
+
+try:
+    from functions.main import *
+except ImportError:
+    print("No callable functions have been defined, you assistant should have no function calls as well")
 
 DELAY = 0.1
 
@@ -12,12 +17,13 @@ def call_function(function_name: str, arguments):
     else:
         raise ValueError(f"Function '{function_name}' does not exist")
 
-def get_assistant_response(prompt, client: OpenAI, assistant, thread):
+def get_assistant_response(prompt, client: OpenAI, assistant, thread, file_ids):
     # Add user message to thread
     client.beta.threads.messages.create(
         thread_id=thread.id,
         role="user",
-        content=prompt
+        content=prompt,
+        file_ids=file_ids
     )
 
     # Run the thread
@@ -76,3 +82,11 @@ def get_assistant_response(prompt, client: OpenAI, assistant, thread):
     message = message.text.value
 
     return message
+
+def upload_files(client: OpenAI, files: list[UploadedFile]):
+    OpenAI_files = []
+
+    for file in files:
+        OpenAI_files.append(client.files.create(file=file, purpose='assistants'))
+    
+    return OpenAI_files
